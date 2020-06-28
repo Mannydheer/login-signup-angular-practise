@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h1>Sign up here!</h1>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input formControlName="username" type="text" class="form-control" />
+    <!-- username validators -->
+    <div
+      *ngIf="(username.touched || username.dirty) && username.invalid"
+      class="alert alert-danger"
+    >
+      <!-- specific validations. -->
+      <div *ngIf="username.errors.required">
+        Username is required.
+      </div>
+      <div *ngIf="username.errors.minlength">
+        Minimum length {{ username.errors.minlength.requiredLength }}
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input formControlName="password" type="text" class="form-control" />
+    <!-- password validators -->
+    <div
+      *ngIf="(password.touched || password.dirty) && username.invalid"
+      class="alert alert-danger"
+    >
+      <!-- specific validations. -->
+      <div *ngIf="password.errors.required">Password is required.</div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button [disabled]="form.invalid" class="btn btn-primary" type="submit">
+      Submit
+    </button>
+  </div>
+</form>
