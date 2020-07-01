@@ -1,0 +1,27 @@
+.list-group-item:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.5s;
+  background-color: rgba(106, 135, 189, 0.466);
+}
+
+.list-group-item {
+  display: flex;
+}
+
+.post-id {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.post-title {
+  font-weight: 600;
+}
+
+.post-container {
+  flex-basis: 80%;
+}
+
+.post-body {
+  padding: 10px 0;
+}

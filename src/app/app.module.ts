@@ -17,6 +17,7 @@ import { GlobalError } from './errors/global-app-error';
 import { NavbarComponent } from './navbar/navbar.component';
 //Router
 import { RouterModule, Router } from '@angular/router';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RouterModule, Router } from '@angular/router';
     SignupComponent,
     NavbarComponent,
     NotFoundComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { RouterModule, Router } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+      //
       {
         path: '',
         component: HomeComponent,
@@ -38,6 +41,10 @@ import { RouterModule, Router } from '@angular/router';
       {
         path: 'signup',
         component: SignupComponent,
+      },
+      {
+        path: 'posts',
+        component: PostsComponent,
       },
       {
         path: '**',

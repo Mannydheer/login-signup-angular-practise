@@ -1,0 +1,20 @@
+<div>
+  <ul class="list-group">
+    <li
+      *ngFor="let post of allPosts; index as i"
+      class="list-group-item"
+      [ngClass]="{
+        active: selected.active && i == selected.value
+      }"
+      (click)="onClick(i)"
+    >
+      <h1 class="post-id">{{ post.id }}</h1>
+      <div class="post-container">
+        <div class="post-title">
+          {{ post.title }}
+        </div>
+        <div class="post-body">{{ post.body }}</div>
+      </div>
+    </li>
+  </ul>
+</div>
