@@ -1,0 +1,9 @@
+nav {
+  background-color: rgb(51, 59, 63);
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+.nav-link {
+  color: white;
+}
