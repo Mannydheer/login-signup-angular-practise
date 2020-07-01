@@ -23,6 +23,14 @@ export class PostsService {
     );
   }
 
+  //! Add interface.
+  public createPost(postInfo) {
+    return this.http.post(this.url, JSON.stringify(postInfo)).pipe(
+      map((response) => response),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {
       return throwError(new NotFoundError(error));

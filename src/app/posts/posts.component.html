@@ -1,3 +1,18 @@
+<!-- FORM TO CREATE A POST -->
+<form [formGroup]="form" (ngSubmit)="submit()" class="post-form-container">
+  <h2>
+    Create a post.
+  </h2>
+  <div class="form-group">
+    <label for="Title">Title:</label>
+    <input formControlName="title" type="text" class="form-control" />
+    <label for="Message">Message:</label>
+    <input formControlName="body" type="text" class="form-control" />
+  </div>
+  <button class="btn btn-primary">Submit post.</button>
+</form>
+
+<!-- LIST OF POSTS. -->
 <div>
   <ul class="list-group">
     <li
@@ -8,7 +23,7 @@
       }"
       (click)="onClick(i)"
     >
-      <h1 class="post-id">{{ post.id }}</h1>
+      <h1 class="post-id">{{ i + 1 }}</h1>
       <div class="post-container">
         <div class="post-title">
           {{ post.title }}
