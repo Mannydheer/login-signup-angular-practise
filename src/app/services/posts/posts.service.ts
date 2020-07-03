@@ -5,6 +5,8 @@ import { throwError } from 'rxjs';
 import { NotFoundError } from 'src/app/errors/not-found';
 import { BadRequestError } from 'src/app/errors/bad-request';
 import { AppError } from 'src/app/errors/app-error';
+//interface.
+import { PostBody } from '../../typings/post';
 
 @Injectable({
   providedIn: 'root',
@@ -23,12 +25,17 @@ export class PostsService {
     );
   }
 
-  //! Add interface.
-  public createPost(postInfo) {
+  public createPost(postInfo: PostBody) {
     return this.http.post(this.url, JSON.stringify(postInfo)).pipe(
       map((response) => response),
       catchError(this.handleError)
     );
+  }
+  //get single post.
+  public getSinglePost(id) {
+    return this.http
+      .get(`${this.url}/${id}`)
+      .pipe(map((response) => response, catchError(this.handleError)));
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -6,8 +6,22 @@
   <div class="form-group">
     <label for="Title">Title:</label>
     <input formControlName="title" type="text" class="form-control" />
+    <!-- title validators. -->
+    <div
+      *ngIf="(title.touched || title.dirty) && title.invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="title.errors.required">Title is required.</div>
+    </div>
     <label for="Message">Message:</label>
     <input formControlName="body" type="text" class="form-control" />
+    <!-- body validators -->
+    <div
+      *ngIf="(body.touched || body.dirty) && body.invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="body.errors.required">A Message is required.</div>
+    </div>
   </div>
   <button class="btn btn-primary">Submit post.</button>
 </form>
@@ -17,6 +31,7 @@
   <ul class="list-group">
     <li
       *ngFor="let post of allPosts; index as i"
+      [routerLink]="['/posts', post.id]"
       class="list-group-item"
       [ngClass]="{
         active: selected.active && i == selected.value

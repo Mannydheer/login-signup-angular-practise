@@ -68,7 +68,7 @@ export class PostsComponent implements OnInit {
         post['id'] = newPost.id;
       },
       (error: AppError) => {
-        //reverse the post on FE.
+        //reverse the post on FE if there is an error.
         this.allPosts.splice(0, 1);
         if (error instanceof BadRequestError) {
           alert('Invalid post information.');

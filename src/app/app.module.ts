@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 //Router
 import { RouterModule, Router } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
+import { SinglepostComponent } from './singlepost/singlepost.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PostsComponent } from './posts/posts.component';
     NavbarComponent,
     NotFoundComponent,
     PostsComponent,
+    SinglepostComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,11 @@ import { PostsComponent } from './posts/posts.component';
         path: 'posts',
         component: PostsComponent,
       },
+      {
+        path: 'posts/:id',
+        component: SinglepostComponent,
+      },
+
       {
         path: '**',
         component: NotFoundComponent,
